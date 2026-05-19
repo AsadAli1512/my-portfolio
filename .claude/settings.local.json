@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "PowerShell(Get-Item *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"E:\\\\MY Portfolio\\\\my-portfolio\\\\src\\\\assets\\\\mypic2.jpg\"\\); Write-Output \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))"
+    ]
+  }
+}

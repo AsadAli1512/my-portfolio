@@ -1,0 +1,5 @@
+/* App-level overrides — kept minimal, main styles are in index.css */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
