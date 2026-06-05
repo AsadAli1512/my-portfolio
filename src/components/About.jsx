@@ -11,7 +11,7 @@ export default function About() {
           style={{ maxWidth: "750px", lineHeight: "1.95" }}
         >
           I'm <strong>Asad Ali</strong>, a final-year Computer Science student at{" "}
-          <strong>CUST Islamabad</strong> with a <strong>3.89/4.0 CGPA</strong> and
+          <strong>CUST Islamabad</strong> with a <strong>3.87/4.0 CGPA</strong> and
           Dean's Honor Awards. I interned at{" "}
           <strong>Figover</strong> in n8n workflow automation and built{" "}
           <a
