@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import mypic from "../assets/mypic2.jpg";
+import mypic from "../assets/mypic2.png";
 
 const roles = [
   "AI Automation Engineer",
