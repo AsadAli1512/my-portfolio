@@ -26,7 +26,7 @@ export default function ResumeDownload() {
                 </span>
                 <span className="resume-meta-chip">
                   <i className="bi bi-check-circle-fill text-success me-1"></i>
-                  Updated 2025
+                  Updated 2026
                 </span>
                 <span className="resume-meta-chip">
                   <i className="bi bi-translate me-1 text-primary"></i>

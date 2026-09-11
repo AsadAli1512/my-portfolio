@@ -10,10 +10,9 @@ export default function About() {
           className="text-center mx-auto"
           style={{ maxWidth: "750px", lineHeight: "1.95" }}
         >
-          I'm <strong>Asad Ali</strong>, a final-year Computer Science student at{" "}
-          <strong>CUST Islamabad</strong> with a <strong>3.87/4.0 CGPA</strong> and
-          Dean's Honor Awards. I interned at{" "}
-          <strong>Figover</strong> in n8n workflow automation and built{" "}
+          I'm <strong>Asad Ali</strong>, Computer Science graduate (
+          <strong>CGPA 3.87/4.0, multiple Dean's Honor Awards</strong>) with hands-on experience in full-stack web development and 
+AI workflow automation. Built and deployed{" "} 
           <a
             href="https://jobshob.me"
             target="_blank"
@@ -22,8 +21,9 @@ export default function About() {
           >
             Jobshob
           </a>
-          , a live AI-powered interview platform, as my Final Year Project. I specialize
-          in <strong>MERN stack</strong> development, <strong>AI/ML</strong> integration,
+          , a live AI recruitment platform that parses CVs, scores candidates and runs automated 
+audio interviews. I specialize
+          in <strong>Full-stack</strong> development, <strong>AI/ML</strong> integration,
           and <strong>workflow automation</strong>. I write clean, efficient code and love
           turning complex ideas into seamless digital experiences.
         </p>
