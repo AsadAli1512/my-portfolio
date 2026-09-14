@@ -1,21 +1,41 @@
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import { site } from "../data/site";
 
 export default function Footer() {
   return (
-    <footer className="text-center py-4">
+    <footer className="site-footer">
       <Container>
-        <div className="mb-2">
-          <a href="https://github.com/AsadAli1512" target="_blank" rel="noreferrer">
-            <i className="bi bi-github fs-4"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/asad-ali-18b8aa2bb/" target="_blank" rel="noreferrer">
-            <i className="bi bi-linkedin fs-4"></i>
-          </a>
+        <Row className="gy-4 align-items-center">
+          <Col md={6}>
+            <div className="footer-brand">{site.name}</div>
+            <p className="footer-tagline">{site.tagline}</p>
+          </Col>
+          <Col md={6} className="text-md-end">
+            <div className="footer-links">
+              <a href="#services">Services</a>
+              <a href="#work">Work</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div className="footer-socials">
+              <a href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <i className="bi bi-linkedin" />
+              </a>
+              <a href={site.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <i className="bi bi-github" />
+              </a>
+              <a href={`mailto:${site.email}`} aria-label="Email">
+                <i className="bi bi-envelope" />
+              </a>
+            </div>
+          </Col>
+        </Row>
+        <div className="footer-base">
+          <span>
+            © {new Date().getFullYear()} {site.name}
+          </span>
+          <span>Built with React</span>
         </div>
-         <Container className="text-center">
-        <p className="mb-1">© {new Date().getFullYear()} Asad Ali. All Rights Reserved.</p>
-        <small>Designed & Built with ❤️ using React & Bootstrap</small>
-      </Container>
       </Container>
     </footer>
   );

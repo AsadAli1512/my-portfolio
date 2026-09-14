@@ -1,35 +1,60 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-const skillCategories = [
-  { title: "Languages", skills: ["JavaScript", "Python", "Java", "C/C++"] },
-  { title: "Frontend", skills: ["React", "HTML", "CSS", "Bootstrap"] },
-  { title: "Backend & Databases", skills: ["Node.js", "Express", "MongoDB", "SQL"] },
-  { title: "AI & Automation", skills: ["LangGraph", "TensorFlow", "Flask", "n8n", "AI Agents"] },
+const groups = [
+  {
+    title: "Frontend",
+    icon: "bi-window",
+    skills: ["React", "Next.js", "JavaScript", "Bootstrap", "Responsive UI", "Technical SEO"],
+  },
+  {
+    title: "Backend & Data",
+    icon: "bi-server",
+    skills: ["Node.js", "Express", "Python", "Flask", "PostgreSQL", "MongoDB", "REST APIs"],
+  },
+  {
+    title: "AI & Automation",
+    icon: "bi-robot",
+    skills: ["AI Agents", "LangGraph", "n8n", "OpenAI / OpenRouter", "Prompt design"],
+  },
+  {
+    title: "Engineering",
+    icon: "bi-tools",
+    skills: ["Git & GitHub", "Docker", "Supabase", "Testing", "Data structures"],
+  },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-5 position-relative">
-      <div className="section-blob one"></div>
-      <div className="section-blob two"></div>
+    <section id="skills" className="section">
       <Container>
-        <h2 data-aos="fade-up">Skills</h2>
-        <Row className="mt-4 g-4">
-          {skillCategories.map((cat, idx) => (
-            <Col md={6} lg={3} key={idx} data-aos="fade-up" data-aos-delay={idx * 150}>
-              <h4 className="text-primary text-center mb-3">{cat.title}</h4>
-              <div className="d-flex flex-wrap justify-content-center">
-                {cat.skills.map((skill, i) => (
-                  <motion.span
-                    whileHover={{ scale: 1.1 }}
-                    className="skill-badge m-2"
-                    key={i}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+        <div className="section-head">
+          <span className="section-eyebrow">Toolkit</span>
+          <h2 className="section-title">What I work with</h2>
+        </div>
+
+        <Row className="g-4">
+          {groups.map((g, i) => (
+            <Col md={6} lg={3} key={g.title}>
+              <motion.div
+                className="skill-group"
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+              >
+                <div className="skill-group-head">
+                  <i className={`bi ${g.icon}`} />
+                  <h3>{g.title}</h3>
+                </div>
+                <div className="skill-tags">
+                  {g.skills.map((s) => (
+                    <span className="skill-tag" key={s}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </Col>
           ))}
         </Row>

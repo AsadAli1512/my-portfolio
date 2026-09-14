@@ -1,59 +1,65 @@
+// Ordered deliberately: AI and automation work first, since that is the
+// work I want to be hired for. Web projects follow as supporting evidence.
+
+export const caseStudy = {
+  title: "JobShob — AI-Powered Recruitment Platform",
+  url: "https://jobshob.me",
+  intro:
+    "A live two-sided hiring platform. Candidates build a profile and apply; recruiters post roles and receive a shortlist that has already been screened and interviewed by AI.",
+  problem:
+    "The first phase of hiring is where recruiters lose most of their time. Sifting CVs, arranging interview slots and running introductory calls is slow, repetitive, and inconsistent from one candidate to the next.",
+  approach: [
+    "CV parsing and scoring agent that reads each application and ranks it against the actual job requirements",
+    "Scheduling agent that arranges interview slots without a recruiter coordinating them",
+    "Interview agent that conducts the live interview with each selected candidate",
+    "Reporting agent that writes up every candidate and how they performed, so decisions are based on the same evidence each time",
+  ],
+  outcome:
+    "Recruiters open the platform to a shortlist that is already screened, interviewed and written up. The entire first phase of hiring runs without a recruiter present, and every candidate is assessed against the same criteria rather than whoever read the CV that day.",
+  tech: ["AI Agents", "LangGraph", "React", "n8n", "PostgreSQL"],
+};
+
 export const projects = [
   {
-    title: "Jobshob: AI-Powered Interview Agent",
-    desc: "My Final Year Project, a live, production-ready AI interview platform that conducts intelligent interviews, evaluates candidates automatically, and provides detailed feedback. Built with AI agents, LangGraph, and modern automation tools.",
-    link: null,
-    demo: "https://jobshob.me",
-    featured: true,
-    tech: ["AI Agents", "LangGraph", "React", "n8n", "Python"],
-  },
-  {
     title: "WhatsApp Interview Agent",
-    desc: "An automated WhatsApp-based interview agent built entirely using n8n workflow automation conducts interviews via WhatsApp messages without writing a single line of backend code.",
+    desc: "An automated interview agent that runs entirely over WhatsApp, built as an n8n workflow with no custom backend to maintain. Candidates are screened in the channel they already use.",
     link: "https://github.com/AsadAli1512",
     demo: null,
-    tech: ["n8n", "Automation", "WhatsApp API"],
-  },
-  {
-    title: "Conversational AI Chatbot",
-    desc: "Smart conversational chatbot with React frontend and Flask backend, powered by OpenRouter AI with multi-model support.",
-    link: "https://github.com/AsadAli1512/conversational-AI-chatbot",
-    demo: null,
-    tech: ["React", "Flask", "Python", "OpenAI API"],
-  },
-  {
-    title: "MERN Restaurant Menu App",
-    desc: "Tasty Byte: a full restaurant menu management system with add/edit/delete items, category selection, responsive UI, and MongoDB Atlas cloud storage.",
-    link: "https://github.com/AsadAli1512/MERN-Restaurant-Menu-Management-App-using-MERN",
-    demo: null,
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-  },
-  {
-    title: "Hospital Management System",
-    desc: "A database driven system to manage patient records and appointments, built to streamline hospital administrative workflows.",
-    link: "https://github.com/AsadAli1512",
-    demo: null,
-    tech: ["Database", "SQL", "C++"],
-  },
-  {
-    title: "Image Search Engine",
-    desc: "A browser based image search engine leveraging an external API, built with clean HTML, CSS and JavaScript with a responsive gallery layout.",
-    link: "https://github.com/AsadAli1512",
-    demo: null,
-    tech: ["HTML", "CSS", "JavaScript", "API"],
+    tech: ["n8n", "WhatsApp API", "Automation"],
   },
   {
     title: "LangGraph AI Agent",
-    desc: "Full-stack AI Agent using LangGraph, Next.js, Supabase, PostgreSQL, and Docker, local and cloud ready setup for building autonomous agents.",
+    desc: "A full-stack autonomous agent with persistent state, built on LangGraph with a Supabase and PostgreSQL data layer. Dockerised for either local or cloud deployment.",
     link: "https://github.com/AsadAli1512/Langgraph-AI-Agent",
     demo: null,
     tech: ["LangGraph", "Next.js", "Supabase", "Docker"],
   },
   {
-    title: "Daily Recipe React App",
-    desc: "React-based daily recipe app with full CRUD using JSON server and React Router navigation.",
+    title: "Conversational AI Chatbot",
+    desc: "A multi-model chatbot with a React front end and Flask backend, routed through OpenRouter so the underlying model can be swapped without touching application code.",
+    link: "https://github.com/AsadAli1512/conversational-AI-chatbot",
+    demo: null,
+    tech: ["React", "Flask", "Python", "OpenRouter"],
+  },
+  {
+    title: "Restaurant Menu Management",
+    desc: "A full MERN application for managing a restaurant menu — categorised items, full create and edit flows, and a responsive interface backed by MongoDB Atlas.",
+    link: "https://github.com/AsadAli1512/MERN-Restaurant-Menu-Management-App-using-MERN",
+    demo: null,
+    tech: ["MongoDB", "Express", "React", "Node.js"],
+  },
+  {
+    title: "Daily Recipe App",
+    desc: "A React application with complete create, read, update and delete flows and client-side routing, built to practise state management patterns cleanly.",
     link: "https://github.com/AsadAli1512/daily-recipe-react-app",
     demo: null,
-    tech: ["React", "React Router", "JSON Server"],
+    tech: ["React", "React Router", "REST"],
+  },
+  {
+    title: "Hospital Management System",
+    desc: "A database-driven system for patient records and appointment scheduling, designed around normalised relational schema and transactional integrity.",
+    link: "https://github.com/AsadAli1512",
+    demo: null,
+    tech: ["SQL", "Database Design", "C++"],
   },
 ];
