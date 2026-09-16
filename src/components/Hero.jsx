@@ -1,175 +1,152 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import mypic from "../assets/mypic2.png";
+import { site } from "../data/site";
 
-const roles = [
-  "AI Automation Engineer",
-  "Web Developer",
-  "Python/ML Enthusiast",
-  "MERN Stack Developer"
+const rise = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.08 * i, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+const proofPoints = [
+  { value: "10+", label: "Projects delivered end to end" },
+  { value: "Live", label: "AI platform running in production" },
+  { value: "Full-stack", label: "Design through to deployment" },
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section id="home" className="hero-section">
-      <Container>
+    <section id="home" className="hero">
+      <div className="hero-glow hero-glow-a" />
+      <div className="hero-glow hero-glow-b" />
+      <div className="hero-grid-overlay" />
+
+      <Container className="position-relative">
         <Row className="align-items-center gy-5">
-          {/* ── Left Content ── */}
-          <Col md={6}>
-            {/* Availability badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="availability-badge mb-3">
-                <span className="badge-dot"></span>
-                Open to Work
-              </div>
+          <Col lg={7}>
+            <motion.div variants={rise} initial="hidden" animate="show" custom={0}>
+              <span className="availability-pill">
+                <span className="pill-dot" />
+                Available for new projects
+              </span>
             </motion.div>
 
-            {/* Name */}
             <motion.h1
-              className="fw-bold display-4"
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              className="hero-title"
+              variants={rise}
+              initial="hidden"
+              animate="show"
+              custom={1}
             >
-              Hi, I'm{" "}
-              <span className="text-primary">Asad Ali</span>
+              Websites and AI automation
+              <br />
+              <span className="hero-title-accent">for growing businesses</span>
             </motion.h1>
 
-            {/* Animated role */}
-            <motion.div
-              className="lead mb-3"
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              style={{ minHeight: "2rem" }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={roles[roleIndex]}
-                  className="fw-semibold"
-                  style={{ color: "#20c997" }}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {roles[roleIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Social icon links */}
-            <motion.div
-              className="hero-social mb-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              <a
-                href="https://github.com/AsadAli1512"
-                target="_blank"
-                rel="noreferrer"
-                className="hero-social-link"
-                title="GitHub"
-              >
-                <i className="bi bi-github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/asad-ali-18b8aa2bb/"
-                target="_blank"
-                rel="noreferrer"
-                className="hero-social-link"
-                title="LinkedIn"
-              >
-                <i className="bi bi-linkedin"></i>
-              </a>
-              <a
-                href="mailto:asadalibaltistani@gmail.com"
-                className="hero-social-link"
-                title="Email"
-              >
-                <i className="bi bi-envelope-fill"></i>
-              </a>
-            </motion.div>
-
-            {/* CTA buttons */}
-            <motion.div
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 1 }}
-              className="d-flex flex-wrap gap-3"
-            >
-              <Button className="btn-custom rounded-pill px-4" href="#contact">
-                Contact Me
-              </Button>
-              <Button
-                variant="outline-dark"
-                className="rounded-pill px-4"
-                href="/Asad_ALI_Resume.pdf"
-                download
-              >
-                <i className="bi bi-download me-2"></i>Download CV
-              </Button>
-            </motion.div>
-          </Col>
-
-          {/* ── Right Image ── */}
-          <Col md={6} className="text-center">
-            <motion.div
-              className="profile-ring-wrapper"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <motion.img
-                src={mypic}
-                alt="Asad Ali"
-                className="img-fluid rounded-circle profile-pic"
-                style={{ maxWidth: "280px", width: "100%" }}
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              />
-            </motion.div>
-
             <motion.p
-              className="hero-tagline"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.7 }}
+              className="hero-lede"
+              variants={rise}
+              initial="hidden"
+              animate="show"
+              custom={2}
             >
-              Turning ideas into scalable products
+              {site.tagline} I work with founders and small teams around the
+              world, from a first business website through to systems that run
+              on their own.
             </motion.p>
 
             <motion.div
-              className="hero-tech-badges"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05, duration: 0.7 }}
+              className="hero-actions"
+              variants={rise}
+              initial="hidden"
+              animate="show"
+              custom={3}
             >
-              {["Python", "n8n Automation", "Node", "React", "SQL/NoSQL", "Git"].map((tech) => (
-                <span key={tech} className="tech-badge">{tech}</span>
+              <Button href="#contact" className="btn-primary-cta btn-lg-cta">
+                Book a free discovery call
+              </Button>
+              <Button href="#work" className="btn-ghost-cta btn-lg-cta">
+                See my work
+              </Button>
+            </motion.div>
+
+            <motion.div
+              className="hero-proof"
+              variants={rise}
+              initial="hidden"
+              animate="show"
+              custom={4}
+            >
+              {proofPoints.map((p) => (
+                <div className="proof-item" key={p.label}>
+                  <span className="proof-value">{p.value}</span>
+                  <span className="proof-label">{p.label}</span>
+                </div>
               ))}
             </motion.div>
           </Col>
-        </Row>
-      </Container>
 
-      <div className="blob1"></div>
-      <div className="blob2"></div>
+          <Col lg={5}>
+            <motion.div
+              className="hero-portrait-wrap"
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="hero-portrait-ring" />
+              <img src={mypic} alt={site.name} className="hero-portrait" />
+
+              <motion.div
+                className="floating-card card-top"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                <i className="bi bi-broadcast" />
+                <div>
+                  <strong>jobshob.me</strong>
+                  <span>Live in production</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="floating-card card-bottom"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.65, duration: 0.5 }}
+              >
+                <i className="bi bi-clock-history" />
+                <div>
+                  <strong>Your timezone</strong>
+                  <span>Hours that suit you</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </Col>
+        </Row>
+
+        <motion.div
+          className="tech-strip"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
+          <span className="tech-strip-label">Working with</span>
+          <div className="tech-strip-items">
+            {["React", "Node.js", "Next.js", "n8n", "LangGraph", "PostgreSQL", "MongoDB"].map(
+              (t) => (
+                <span className="tech-chip" key={t}>
+                  {t}
+                </span>
+              )
+            )}
+          </div>
+        </motion.div>
+      </Container>
     </section>
   );
 }

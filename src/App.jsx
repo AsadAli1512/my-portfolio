@@ -1,13 +1,13 @@
 import { ThemeProvider } from "./context/ThemeContext";
 import MyNavbar from "./components/MyNavbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Education from "./components/Education";
-import Experience from "./components/Experience";
+import Services from "./components/Services";
+import CaseStudy from "./components/CaseStudy";
 import Projects from "./components/Projects";
+import Process from "./components/Process";
+import About from "./components/About";
 import Skills from "./components/Skills";
-import Certificates from "./components/Certificates";
-import ResumeDownload from "./components/ResumeDownload";
+import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -15,15 +15,17 @@ function App() {
   return (
     <ThemeProvider>
       <MyNavbar />
-      <Hero />
-      <About />
-      <Education />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Certificates />
-      <ResumeDownload />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <CaseStudy />
+        <Projects />
+        <Process />
+        <About />
+        <Skills />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
     </ThemeProvider>
   );

@@ -1,155 +1,165 @@
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { site, overlapHours } from "../data/site";
+
+const budgets = [
+  "Under $500",
+  "$500 – $1,500",
+  "$1,500 – $5,000",
+  "$5,000+",
+  "Not sure yet",
+];
 
 export default function Contact() {
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
 
     const form = e.target;
-    const templateParams = {
-      name: form.user_name.value,
-      email: form.user_email.value,
-      message: form.message.value,
-    };
-
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
+        {
+          name: form.user_name.value,
+          email: form.user_email.value,
+          company: form.company.value,
+          budget: form.budget.value,
+          message: form.message.value,
+        },
         { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       )
       .then(() => {
         setStatus("sent");
         form.reset();
       })
-      .catch(() => {
-        setStatus("error");
-      });
+      .catch(() => setStatus("error"));
   };
 
   return (
-    <section id="contact" className="py-5">
+    <section id="contact" className="section contact-section">
       <Container>
-        <h2 className="mb-4 text-center">Get In Touch</h2>
-        <Row className="g-4">
-          <Col md={4} data-aos="fade-right">
-            <Card className="shadow-sm h-100">
-              <Card.Body>
-                <h5>Email</h5>
-                <p>
-                  <a href="mailto:asadalibaltistani@gmail.com">
-                    asadalibaltistani@gmail.com
-                  </a>
-                </p>
-                <h5>Phone</h5>
-                <p>+92-313-5533578</p>
-                <h5>Location</h5>
-                <p>Islamabad, Pakistan</p>
-                <div className="mt-3 d-flex flex-wrap gap-2">
-                  <Button
-                    className="rounded-pill btn-custom"
-                    href="https://github.com/AsadAli1512"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="bi bi-github me-1"></i> GitHub
-                  </Button>
-                  <Button
-                    variant="primary"
-                    className="rounded-pill"
-                    href="https://www.linkedin.com/in/asad-ali-18b8aa2bb/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="bi bi-linkedin me-1"></i> LinkedIn
-                  </Button>
+        <Row className="g-4 gy-5">
+          <Col lg={5}>
+            <span className="section-eyebrow">Get in touch</span>
+            <h2 className="section-title text-start">
+              Tell me what you are trying to build
+            </h2>
+            <p className="about-text">
+              Send over a short description of the problem and I will reply
+              within one business day with honest thoughts on whether it is a
+              good fit, a rough timeline, and what it would cost. No pressure
+              and no sales sequence.
+            </p>
+
+            <div className="contact-details">
+              <a className="contact-row" href={`mailto:${site.email}`}>
+                <i className="bi bi-envelope" />
+                <div>
+                  <strong>Email</strong>
+                  <span>{site.email}</span>
                 </div>
-              </Card.Body>
-            </Card>
+              </a>
+              <div className="contact-row">
+                <i className="bi bi-clock-history" />
+                <div>
+                  <strong>Usual response time</strong>
+                  <span>Within one business day</span>
+                </div>
+              </div>
+              <div className="contact-row">
+                <i className="bi bi-globe2" />
+                <div>
+                  <strong>Calls</strong>
+                  <span>{overlapHours}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-socials">
+              <a href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <i className="bi bi-linkedin" />
+              </a>
+              <a href={site.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <i className="bi bi-github" />
+              </a>
+            </div>
           </Col>
 
-          <Col md={8} data-aos="fade-left">
-            <Card className="shadow-sm">
-              <Card.Body>
-                {status === "sent" ? (
-                  <div className="text-center py-4">
-                    <i
-                      className="bi bi-check-circle-fill text-success"
-                      style={{ fontSize: "3rem" }}
-                    ></i>
-                    <h5 className="mt-3 text-success">Message Sent!</h5>
-                    <p className="text-muted">
-                      Thanks for reaching out. I'll get back to you soon.
-                    </p>
-                    <Button
-                      variant="outline-success"
-                      className="rounded-pill"
-                      onClick={() => setStatus("idle")}
-                    >
-                      Send Another
-                    </Button>
-                  </div>
-                ) : (
-                  <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Name</Form.Label>
+          <Col lg={7}>
+            <div className="contact-card">
+              {status === "sent" ? (
+                <div className="contact-success">
+                  <i className="bi bi-check-circle" />
+                  <h3>Thank you — your message is on its way</h3>
+                  <p>
+                    I have received your enquiry and will get back to you within
+                    one business day. If it is urgent, email me directly at{" "}
+                    <a href={`mailto:${site.email}`}>{site.email}</a>.
+                  </p>
+                  <Button className="btn-ghost-cta" onClick={() => setStatus("idle")}>
+                    Send another message
+                  </Button>
+                </div>
+              ) : (
+                <Form onSubmit={handleSubmit}>
+                  <Row className="g-3">
+                    <Col md={6}>
+                      <Form.Label htmlFor="user_name">Your name</Form.Label>
+                      <Form.Control id="user_name" name="user_name" required />
+                    </Col>
+                    <Col md={6}>
+                      <Form.Label htmlFor="user_email">Email</Form.Label>
+                      <Form.Control id="user_email" name="user_email" type="email" required />
+                    </Col>
+                    <Col md={6}>
+                      <Form.Label htmlFor="company">Company (optional)</Form.Label>
+                      <Form.Control id="company" name="company" />
+                    </Col>
+                    <Col md={6}>
+                      <Form.Label htmlFor="budget">Budget range</Form.Label>
+                      <Form.Select id="budget" name="budget" defaultValue="Not sure yet">
+                        {budgets.map((b) => (
+                          <option key={b}>{b}</option>
+                        ))}
+                      </Form.Select>
+                    </Col>
+                    <Col xs={12}>
+                      <Form.Label htmlFor="message">What are you trying to build?</Form.Label>
                       <Form.Control
-                        name="user_name"
-                        placeholder="Your Name"
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control
-                        name="user_email"
-                        type="email"
-                        placeholder="you@example.com"
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Message</Form.Label>
-                      <Form.Control
+                        id="message"
                         name="message"
                         as="textarea"
-                        rows={4}
-                        placeholder="Write your message..."
+                        rows={5}
+                        placeholder="A few sentences about the problem, what you have tried, and any deadline you are working to."
                         required
                       />
-                    </Form.Group>
-                    {status === "error" && (
-                      <p className="text-danger small mb-2">
-                        Something went wrong. Please email me directly at{" "}
-                        <a href="mailto:asadalibaltistani@gmail.com">
-                          asadalibaltistani@gmail.com
-                        </a>
-                        .
-                      </p>
-                    )}
-                    <Button
-                      type="submit"
-                      className="rounded-pill btn-custom"
-                      disabled={status === "sending"}
-                    >
-                      {status === "sending" ? (
-                        <>
-                          <span className="spinner-border spinner-border-sm me-2" />
-                          Sending...
-                        </>
-                      ) : (
-                        "Send Message"
-                      )}
-                    </Button>
-                  </Form>
-                )}
-              </Card.Body>
-            </Card>
+                    </Col>
+                  </Row>
+
+                  {status === "error" && (
+                    <p className="contact-error">
+                      Something went wrong sending that. Please email me directly
+                      at <a href={`mailto:${site.email}`}>{site.email}</a>.
+                    </p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    className="btn-primary-cta btn-lg-cta mt-4"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? "Sending…" : "Send enquiry"}
+                  </Button>
+                  <p className="contact-privacy">
+                    Your details are used only to reply to this enquiry.
+                  </p>
+                </Form>
+              )}
+            </div>
           </Col>
         </Row>
       </Container>
