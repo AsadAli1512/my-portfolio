@@ -10,8 +10,8 @@ export default function Projects() {
           <span className="section-eyebrow">Selected work</span>
           <h2 className="section-title">Other things I have built</h2>
           <p className="section-sub">
-            A mix of automation work and full-stack applications. Source is
-            public where the client permits.
+            Client websites, automation work and full-stack applications.
+            Source is public where the client permits.
           </p>
         </div>
 
@@ -47,6 +47,11 @@ export default function Projects() {
                     <a href={p.link} target="_blank" rel="noreferrer" className="project-link">
                       <i className="bi bi-github" /> Source
                     </a>
+                  )}
+                  {p.note && (
+                    <span className="project-link">
+                      <i className="bi bi-lock" /> {p.note}
+                    </span>
                   )}
                 </div>
               </motion.article>

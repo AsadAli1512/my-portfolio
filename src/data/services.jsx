@@ -11,7 +11,7 @@ export const services = [
     deliverables: [
       "Custom design built around your brand, not a template",
       "Fast, responsive and readable on every screen size",
-      "Search engine fundamentals: clean markup, meta tags, sitemap, fast load times",
+      "Search engine fundamentals: clean markup, meta tags, sitemap, and a page for each location you serve",
       "A simple way for you to update content yourself after launch",
     ],
     timeline: "2 – 4 weeks",

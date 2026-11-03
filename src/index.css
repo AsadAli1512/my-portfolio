@@ -690,6 +690,10 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+.case-card + .case-card {
+  margin-top: 32px;
+}
+
 .case-head {
   display: flex;
   align-items: flex-start;

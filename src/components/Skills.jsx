@@ -5,7 +5,7 @@ const groups = [
   {
     title: "Frontend",
     icon: "bi-window",
-    skills: ["React", "Next.js", "JavaScript", "Bootstrap", "Responsive UI", "Technical SEO"],
+    skills: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Bootstrap", "Responsive UI", "Technical SEO", "Local SEO"],
   },
   {
     title: "Backend & Data",
@@ -20,7 +20,7 @@ const groups = [
   {
     title: "Engineering",
     icon: "bi-tools",
-    skills: ["Git & GitHub", "Docker", "Supabase", "Testing", "Data structures"],
+    skills: ["Git & GitHub", "GitHub Actions", "Linux VPS", "Cloudflare", "Docker", "Supabase", "Testing", "Data structures"],
   },
 ];
 

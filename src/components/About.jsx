@@ -19,7 +19,7 @@ const track = [
     period: "2022 — Present",
     role: "Freelance & independent projects",
     detail:
-      "Delivered 10+ projects end to end across business websites, full-stack applications and workflow automation, from first requirement through to deployment.",
+      "Delivered 10+ projects end to end across business websites, full-stack applications and workflow automation, from first requirement through to deployment. Recent work includes multi-location websites for US service businesses.",
   },
 ];
 
