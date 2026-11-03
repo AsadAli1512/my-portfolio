@@ -5,7 +5,7 @@ export const site = {
   name: "Asad Ali",
   role: "Web Developer & AI Automation Engineer",
   tagline:
-    "I build professional website application, and the AI automation that takes repetitive work off your team's plate.",
+    "I build professional websites and web applications, plus the AI automation that takes repetitive work off your team's plate.",
   location: "Islamabad, Pakistan",
   timezone: "PKT (UTC+5)",
   email: "asadalibaltistani@gmail.com",
